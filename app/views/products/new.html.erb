@@ -1,32 +1,5 @@
 <%= form_for :product, url: products_path do |f| %>
  
-  <% if @product.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@product.errors.count, "error") %> han impedido que el producto sea grabado:
-      </h2>
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= f.label :nombre %><br>
-    <%= f.text_field :name %>
-  </p>
- 
-  <p>
-    <%= f.label :precio %><br>
-    <%= f.number_field :price, class: :text_field, step: :any %>
-  </p>
- 
-  <p>
-    <%= f.submit 'Guardar Producto' %>
-  </p>
- 
-<% end %>
+<%= render 'form' %>
  
 <%= link_to 'Volver', products_path %>
