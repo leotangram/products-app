@@ -1,6 +1,18 @@
-<h1>Nuevo Producto</h1>
-
 <%= form_for :product, url: products_path do |f| %>
+ 
+  <% if @product.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %> han impedido que el producto sea grabado:
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
   <p>
     <%= f.label :nombre %><br>
     <%= f.text_field :name %>
@@ -8,13 +20,13 @@
  
   <p>
     <%= f.label :precio %><br>
-    <%= f.number_field :price, value: number_to_currency(delimiter: '', unit: ''), step: :any
-%>
+    <%= f.text_area :price %>
   </p>
  
   <p>
     <%= f.submit 'Guardar Producto' %>
   </p>
+ 
 <% end %>
-
+ 
 <%= link_to 'Volver', products_path %>
