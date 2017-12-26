@@ -10,6 +10,8 @@
     <tr>
       <td><%= product.name %></td>
       <td><%= product.price %></td>
+      <td><%= link_to 'Ver', product_path(product) %></td>
+      <td><%= link_to 'Editar', edit_product_path(product) %>
     </tr>
   <% end %>
 </table>
