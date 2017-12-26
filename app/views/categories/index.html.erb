@@ -1,0 +1,16 @@
+<h1>Listando Categorías</h1>
+ 
+<table>
+  <tr>
+    <th>Nombre</th>
+  </tr>
+ 
+  <% @categories.each do |category| %>
+    <tr>
+      <td><%= category.name %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'Nueva Categoría', new_category_path %>
+<%= link_to 'Inicio', controller: 'wellcome' %>
